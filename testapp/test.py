@@ -1,4 +1,3 @@
-import os
 print("Executing the script for realz")
 
 def button_clicked(widget, data=None):
