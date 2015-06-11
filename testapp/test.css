@@ -1,0 +1,8 @@
+GtkBox {
+	padding: 5px;
+}
+
+GtkButton {
+	padding: 10px;
+	border: 2px solid #F00;
+}
