@@ -1,4 +1,3 @@
-import importedfile
 import os
 print("Executing the script for realz")
 importedfile.print_imported()

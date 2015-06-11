@@ -8,9 +8,11 @@ from bs4 import BeautifulSoup
 
 def get_fileobject(src):
 	if src.startswith('http'):
-		return requests.get(src)
+		return requests.get(src).text
 	else:
-		return open(src, 'r')
+		with open(src, 'r') as f:
+			contents = f.read()
+		return contents
 
 if __name__ == '__main__':
 	signal.signal(signal.SIGINT, signal.SIG_DFL)
@@ -19,8 +21,10 @@ if __name__ == '__main__':
 
 	root_path = os.path.dirname(filename)
 	print('root path: ', root_path)
-	f = get_fileobject(filename)
 
+
+	f = get_fileobject(filename)
+	print(f)
 	builder = Gtk.Builder()
 
 	soup = BeautifulSoup(f)
@@ -50,8 +54,7 @@ if __name__ == '__main__':
 
 	for style in styles:
 		style_provider = Gtk.CssProvider()
-		style_provider.load_from_data(bytes(style.read(), 'utf-8'))
-		style.close()
+		style_provider.load_from_data(bytes(style, 'utf-8'))
 		builder.get_object('root').get_style_context()\
 			.add_provider_for_screen(
 				builder.get_object('root').get_screen(), 
@@ -59,6 +62,6 @@ if __name__ == '__main__':
 				Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
 	for script in scripts:
-		exec(script.read(), {'builder': builder})
+		exec(script, {'builder': builder})
 
 	Gtk.main()
