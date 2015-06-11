@@ -1,4 +1,7 @@
 # GtkOnline
+
+Watch online: https://www.youtube.com/watch?v=h69_Sjg4Trg
+
 A 2 hour hack to replace HTML and JavaScript with Gtk and Python.
 
 At the moment there is no sandbox or any security mechanism at all, so use with care.
