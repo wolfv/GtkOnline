@@ -8,9 +8,11 @@ At the moment there is no sandbox or any security mechanism at all, so use with 
 
 Example usage: Download `gtk_browser.py` and execute with `python3 gtk_browser.py <<URL>>`.
 
+Specific example: `python3 gtk_browser.py https://raw.githubusercontent.com/wolfv/GtkOnline/master/testapp/test.glade`
+
 URL is a special crafted glade file that includes `<script>` and `<style>` tags.
 
-URL can be local or on the web. You can use the included example by replacing URL with `https://github.com/wolfv/GtkOnline/blob/master/testapp/test.glade`.
+URL can be local or on the web. You can use the included example by replacing URL with `https://raw.githubusercontent.com/wolfv/GtkOnline/master/testapp/test.glade`.
 
 ### Dependencies
 
